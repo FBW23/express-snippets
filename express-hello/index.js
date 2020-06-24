@@ -2,15 +2,18 @@ const express = require('express');
 const app = express();
 
 // express - the library for creating APIs
-// app - setup a concrete API
+// app - a concrete API (created from express)
 
+// LOW DB setup
+// low db conveniently syncs all changes to an array of data to a JSON file for us automatically
 const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('./data/db.json')
 const db = low(adapter)
 
-// { name: vasilis, age: 32 } => req.body
 app.use(express.json()) // parser for incoming json body data
+// => the data sent to us will be made available to us in: req.body
+// e.g. { name: "Rob", age: 37 } (=> that is the stuff you entered into postman UI body section)
 
 // req => request
 // res => response
@@ -32,7 +35,8 @@ app.get("/user", (req, res) => {
   res.send(users)
 })
 
-// /user/15 => 15 will be stored in 
+// example call: /user/15 => "15" will be stored in req.params.userId
+// we map an URL parameter to a variable this way
 app.get("/user/:userId", (req, res) => {
   let { userId } = req.params
 
@@ -56,8 +60,8 @@ app.patch("/user/:userId", (req, res) => {
   let { userId } = req.params 
   let { name, age } = req.body
 
+  // use find + assign to update fields
   let userUpdated = db.get("users").find({id: userId}).assign({name, age}).write()
-
   res.send(userUpdated)
 })
 
