@@ -3,7 +3,7 @@ const userRouter = express.Router() // SUB API
 const { getUsers, getUser, addUser, updateUser, deleteUser } = require("../controllers/usersController")
 
 // *** USER CRUD ROUTES 
-// (we will outsource them tomorrow into an own file)
+// (we will outsource the common path (=/user ) that is same for all our routes later...) 
 
 userRouter.get("/user", getUsers)
 
