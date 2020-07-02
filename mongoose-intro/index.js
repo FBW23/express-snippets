@@ -11,7 +11,7 @@ const AnimalSchema = new Schema({
 
 // MODEL - our CRUD object for the animal collection
 const Animal = model("Animal", AnimalSchema)
-// Animal => animals => THIS is the collection name mongoose will try to access in MongoDB
+// model name: "Animal" => is converted to "animals" => THIS is the collection name mongoose will try to access in MongoDB
 
 
 // connection string
