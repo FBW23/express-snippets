@@ -23,6 +23,7 @@ const StudentSchema = new Schema({
   firstname: { type: String, required: true }
 })
 
+// NESTING OR REFFING a related info => you have to chose one over the other
 const CourseSchema = new Schema({
   title: { type: String, required: true }, // e.g. FBW23
   teacher: { ref: "Teacher", type: Schema.Types.ObjectId }, 
