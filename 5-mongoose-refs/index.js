@@ -53,8 +53,7 @@ const Teacher = model("Teacher", TeacherSchema);
 
   const course = await Course.create({
       title: "FBW17", 
-      // teacher => subdocument
-      teacher: teacher._id,
+      teacher: teacher._id, // reference to a teacher with that ID in the teachers collection
       // students => array of subdocuments
       students: [
         {firstname: "Nicolo"}, 
