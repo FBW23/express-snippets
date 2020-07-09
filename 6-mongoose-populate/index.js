@@ -91,8 +91,8 @@ app.get("/seed", async (req, res, next) => {
   const course = await Course.create({
     title: "FBW23", 
     room: { nr: 27, floor: 2 }, // one-to-one
-    students: studentIds,
-    teachers: teacherIds
+    students: studentIds, // one-to-many
+    teachers: teacherIds // many-to-many
   })
   console.log("Course created:" , course)
 
