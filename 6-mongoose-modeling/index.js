@@ -16,10 +16,6 @@ mongoose.connect("mongodb://localhost/courses_db", {
 // STUDENTS
 // ROOM
 
-// 1 COURSE - n STUDENTS
-// 1 STUDENT - 1 COURSE
-// => One-to-Many
-
 const RoomSchema = new Schema({
   floor: { type: Number, required: true } ,
   nr: { type: Number, required: true }
@@ -95,8 +91,8 @@ app.get("/seed", async (req, res, next) => {
   const course = await Course.create({
     title: "FBW23", 
     room: { nr: 27, floor: 2 }, // one-to-one
-    students: studentIds,
-    teachers: teacherIds
+    students: studentIds, // one-to-many
+    teachers: teacherIds // many-to-many
   })
   console.log("Course created:" , course)
 
