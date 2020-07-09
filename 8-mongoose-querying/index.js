@@ -66,7 +66,10 @@ let port = 8000
 app.listen(port, () => console.log(`Server started on port ${port}`))
 
 
-app.get("/students", async (req, res, next) => {
+// /students?key=val&key2=val2
+app.get("/students/", async (req, res, next) => {
+
+  console.log(req.query)
 
   // FAT CLIENT - THIN BACKEND
 
