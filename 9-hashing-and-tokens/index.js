@@ -34,6 +34,7 @@ const login = (email, pwPlain) => {
   }
 
   // user authenticated => create a token (=visitor card)
+  // IMPORTANT: NEVER store sensitive information in the token!!!
   const token = jwt.sign({ _id: user._id }, holySecret)
   console.log("Token: ", token)
   return token
