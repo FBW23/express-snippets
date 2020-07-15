@@ -42,3 +42,11 @@ const token = login("rob@dci.com", "hello123")
 
 let decoded = jwt.verify(token, holySecret)
 console.log("Verified token, data received: ", decoded)
+
+
+// BCRYPT => PASSWORDS => CREATING HASHES & LOOKING UP HASHES
+  // SIGNUP => CREATE HASHED PASSWORD
+  // LOGIN => TO CHECK THE PASSWORD
+
+// JWT => TOKEN => AUTHENTICATION ON SUBSEQUENT REQUESTS
+  // ON ALL OTHER REQUESTS TO SECRET ROUTES
