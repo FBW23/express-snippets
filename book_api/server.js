@@ -6,11 +6,10 @@ const app = express();
 const mongoose = require("mongoose");
 const { getBooks, getBook, addBook, updateBook, deleteBook } = require('./controllers/booksControllers');
 const seed = require('./controllers/seedController');
-const { getUsers, getUser, addUser, updateUser, deleteUser, loginUser } = require('./controllers/usersControllers');
-
-const { Schema, model } = mongoose
-
-const secretJwt = "sniffMeButYouNeverWill"
+const { 
+  getUsers, getUser, addUser, updateUser, deleteUser, loginUser,
+  secretJwt
+} = require('./controllers/usersControllers');
 
 
 // DATABASE CONN SETUP

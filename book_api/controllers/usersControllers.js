@@ -52,4 +52,4 @@ const deleteUser = async (req, res, next) => {
   res.send(user)
 }
 
-module.exports = { loginUser, getUsers, getUser, addUser, updateUser, deleteUser }
+module.exports = { loginUser, getUsers, getUser, addUser, updateUser, deleteUser, secretJwt }
